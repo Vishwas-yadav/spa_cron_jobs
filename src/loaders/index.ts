@@ -5,6 +5,7 @@ import jobsLoader from './jobs';
 import Logger from './logger';
 //We have to import at least all the events once so they can be triggered
 import './events';
+import cronJobs from './cronJobs';
 
 export default async ({ expressApp }) => {
   const mongoConnection = await mongooseLoader();
@@ -40,4 +41,7 @@ export default async ({ expressApp }) => {
 
   await expressLoader({ app: expressApp });
   Logger.info('✌️ Express loaded');
+
+  await cronJobs();
+
 };

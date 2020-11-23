@@ -6,6 +6,8 @@ export default class EmailSequenceJob {
   public async handler(job, done): Promise<void> {
     const Logger: Logger = Container.get('logger');
     try {
+      console.log("heheheh");
+
       Logger.debug('✌️ Email Sequence Job triggered!');
       const { email, name }: { [key: string]: string } = job.attrs.data;
       const mailerServiceInstance = Container.get(MailerService);
